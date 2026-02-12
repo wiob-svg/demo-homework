@@ -1,0 +1,259 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+/* 页面背景和基础样式 */
+body {
+    line-height: 1.7;
+    color: #2d3748;
+    background-color: #f5f7fa;
+    background-image: url('../images/bg.jpeg'); /* 路径按实际目录调整 */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    min-height: 100vh;
+}
+
+/* 页面遮罩层，提升文字可读性 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 247, 250, 0.92);
+    z-index: -1;
+}
+
+/* 头部样式 - 替换header标签选择器为类选择器.header */
+.header {
+    background-color: #1e40af;
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+    background-image: linear-gradient(135deg, rgba(30, 64, 175, 0.95), rgba(49, 46, 129, 0.95)), url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* 导航栏样式 - 替换nav标签选择器为类选择器.nav */
+.nav {
+    background-color: #1e3a8a;
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.15rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 导航链接hover效果 */
+.nav a:hover {
+    background-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+/* 导航链接底部装饰线 */
+/* .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #93c5fd;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav a:hover::after {
+    width: 80%;
+} */
+
+/* 当前页面导航高亮 */
+.nav a.active {
+    background-color: #3b82f6;
+    font-weight: bold;
+}
+
+/* 主要内容容器 - 优化间距和阴影 */
+.container {
+    width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+/* 章节通用样式 - 替换section标签选择器为类选择器.section */
+.section {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 章节hover微动效 */
+/* .section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+} */
+
+/* 标题核心样式（无select，保留装饰效果） */
+.section h2 {
+    color: #1e40af;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #dbeafe;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* 标题装饰线条（新增span元素实现） */
+.section h2 .title-line {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #3b82f6;
+    z-index: 1;
+}
+
+.section p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #4a5568;
+    text-align: justify;
+}
+
+/* 图片展示样式 - 优化卡片效果 */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.image-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* 图片卡片hover效果 */
+.image-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.image-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 3px solid #3b82f6;
+}
+
+.image-card p {
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #1e40af;
+    font-size: 1.1rem;
+}
+
+/* 特色列表样式 - 美化列表项 */
+.feature-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.feature-list li {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid #f0f4f9;
+    display: flex;
+    align-items: flex-start;
+    background-color: #f9fafe;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.feature-list li:hover {
+    background-color: #eff6ff;
+}
+
+.feature-list li:before {
+    content: "✦";
+    color: #3b82f6;
+    font-weight: bold;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.feature-list li strong {
+    color: #1e40af;
+    margin-right: 0.5rem;
+}
+
+/* 页脚样式 - 替换footer标签选择器为类选择器.footer */
+.footer {
+    background-color: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 5px solid #3b82f6;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+.footer p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
